@@ -46,6 +46,10 @@ Expected catalog/schema: `sre_monitoring_catalog.monitoring_system` with tables:
 - `POST /api/chat` – body `{ "message": "..." }` – AI Genie (intent-based SQL)
 - `POST /api/redeploy` – body `{ "id"?, "failure_type"? }` – stub for redeploy pipeline; replace with your logic
 
+## Deployment
+
+See [DEPLOYMENT_AZURE.md](./DEPLOYMENT_AZURE.md) for deploying to Azure App Service with Azure Databricks.
+
 ## Tech
 
 - Next.js 14 (App Router), TypeScript, Tailwind CSS, shadcn/ui, Recharts, Lucide icons.

@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && node -e \"require('fs').cpSync('.next/static','.next/standalone/.next/static',{recursive:true})\"",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "deploy:prepare": "npm run build && node -e \"require('fs').cpSync('.next/static','.next/standalone/.next/static',{recursive:true})\""
   },
   "dependencies": {
     "@databricks/sql": "^1.0.0",

@@ -70,13 +70,21 @@ export function MetricsChart({ data, loading }: MetricsChartProps) {
       <ResponsiveContainer width="100%" height="100%">
         <RechartsLineChart
           data={chartData}
-          margin={{ top: 5, right: 20, left: 0, bottom: 5 }}
+          margin={{ top: 28, right: 20, left: 0, bottom: 36 }}
         >
           <CartesianGrid strokeDasharray="3 3" stroke="#334155" />
           <XAxis
             dataKey="time"
             stroke="#94a3b8"
-            tick={{ fill: "#94a3b8", fontSize: 12 }}
+            tick={{ fill: "#94a3b8", fontSize: 11 }}
+            interval="preserveStartEnd"
+            label={{
+              value: "Time",
+              position: "insideBottom",
+              offset: -10,
+              fill: "#94a3b8",
+              fontSize: 12,
+            }}
           />
           <YAxis
             stroke="#94a3b8"
@@ -99,6 +107,8 @@ export function MetricsChart({ data, loading }: MetricsChartProps) {
             }
           />
           <Legend
+            verticalAlign="top"
+            align="right"
             wrapperStyle={{ fontSize: 12 }}
             formatter={(value) => <span className="text-slate-300">{value}</span>}
           />
@@ -112,7 +122,7 @@ export function MetricsChart({ data, loading }: MetricsChartProps) {
             type="monotone"
             dataKey="cpu"
             name="CPU %"
-            stroke="#38bdf8"
+            stroke="#22d3ee"
             strokeWidth={2}
             dot={false}
             connectNulls
@@ -121,13 +131,13 @@ export function MetricsChart({ data, loading }: MetricsChartProps) {
             type="monotone"
             dataKey="mem"
             name="Memory %"
-            stroke="#a78bfa"
+            stroke="#f59e0b"
             strokeWidth={2}
             dot={({ payload }) =>
               payload.memSpike ? (
                 <circle r={4} fill="#ef4444" stroke="#fca5a5" strokeWidth={2} />
               ) : (
-                <circle r={2} fill="#a78bfa" />
+                <circle r={2} fill="#f59e0b" />
               )
             }
             connectNulls
